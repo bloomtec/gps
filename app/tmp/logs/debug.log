@@ -1,0 +1,6 @@
+2011-05-18 16:06:20 Debug: Notice (8): Undefined property: PagesController::$Auth in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 38]
+2011-05-18 16:08:22 Debug: Notice (8): Undefined property: PagesController::$Auth in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 38]
+2011-05-18 16:47:13 Debug: Notice (8): Undefined variable: slug in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 50]
+2011-05-18 16:48:41 Debug: Notice (8): Undefined property: PagesController::$Auth in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 38]
+2011-05-18 16:48:43 Debug: Notice (8): Undefined property: PagesController::$Auth in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 38]
+2011-05-18 16:51:22 Debug: Notice (8): Undefined variable: slug in [D:\xampp\htdocs\gps2\app\controllers\pages_controller.php, line 50]
