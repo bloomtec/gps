@@ -18,8 +18,8 @@
 
 <script type="text/javascript">
 					CKEDITOR.replace( 'editor',{
-        				filebrowserUploadUrl : '/priceshoes/upload.php',
-        				filebrowserBrowseUrl : '/priceshoes/admin/images/wysiwyg',
+        				filebrowserUploadUrl : '/gps/upload.php',
+        				filebrowserBrowseUrl : '/gps/admin/images/wysiwyg',
 
 
 					} );
