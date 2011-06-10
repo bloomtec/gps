@@ -18,6 +18,7 @@ class PagesController extends AppController {
 		}
 		$this->set('page', $this->Page->findBySlug($s));
 		$this->set("homeID",$s);
+		$this->layout="home";
 
 	}
 	function bannerPromocional(){
