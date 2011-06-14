@@ -30,7 +30,7 @@
 
 		echo $this->Html->css('front');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
-		echo $this->Html->script("front.js");
+		//echo $this->Html->script("front.js");
 
 		echo $scripts_for_layout;
 	?>

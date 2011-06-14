@@ -1,5 +1,4 @@
 <?php
-
 class PagesController extends AppController {
 
 	var $name = 'Pages';
@@ -10,8 +9,7 @@ class PagesController extends AppController {
 	}
 		
 
-	function view($s = null) {
-		
+	function view($s = null) {		
 		if (!$s) {
 			$this->Session->setFlash(__('Página inválida', true));
 			$this->redirect(array('action' => 'index'));
