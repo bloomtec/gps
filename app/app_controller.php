@@ -4,9 +4,7 @@ class AppController extends Controller {
 	var $components = array("Session", "Auth");
 	var $uses = array("Page");
 	var $helpers = array("Form", "Session", "Html");
-	
 	function beforeFilter(){
-		parent::beforeFilter();
 		
 		$this->Auth->allow('*');
 		
@@ -25,6 +23,7 @@ class AppController extends Controller {
 		} else {
 			$this->$model->locale = "en_us";
 		}
+		
 	}
 	
 }

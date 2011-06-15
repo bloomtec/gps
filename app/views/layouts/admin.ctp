@@ -38,6 +38,10 @@
 <body>
 	<div id="container">
 		<div id="header">
+			<div class="languaje">
+				<?php echo $html->link("Español",array("controller"=>"pages","action"=>"location","es_es"));?>
+				<?php echo $html->link("Ingles",array("controller"=>"pages","action"=>"location","en_us"));?>
+			</div>
 			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">

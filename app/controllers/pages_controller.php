@@ -11,7 +11,10 @@ class PagesController extends AppController {
 		$this->Session->write("locale",$location);
 		$this->redirect($this->referer());
   	}
-  	
+ 	function admin_location($location){
+		$this->Session->write("locale",$location);
+		$this->redirect($this->referer());
+  	} 	
 	function view($s = null) {
 		$this->layout="home";
 		if (!$s) {
@@ -39,7 +42,8 @@ class PagesController extends AppController {
 	
 	function admin_index() {
 		$this->layout="admin";
-		$this->Page->recursive = 0;
+		$this->Page->recursive = 1;
+		$this->Page->find("all",array ('recursive'=>1));
 		$this->set('pages', $this->paginate());
 	}
 

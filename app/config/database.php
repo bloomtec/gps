@@ -77,8 +77,8 @@ class DATABASE_CONFIG {
 		'driver' => 'mysql',
 		'persistent' => false,
 		'host' => 'localhost',
-		'login' => 'gps',
-		'password' => 'gps',
+		'login' => 'root',
+		'password' => '',
 		'database' => 'gps',
 		'prefix' => '',
 	);
