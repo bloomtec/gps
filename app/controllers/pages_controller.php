@@ -2,26 +2,28 @@
 class PagesController extends AppController {
 
 	var $name = 'Pages';
+	
 	function beforeFilter(){
-		//	parent::beforeFilter();
-			//$this->Auth->allow('*');
-			//debug($this->Auth); 
+		parent::beforeFilter();
 	}
+	
 	function location($location){
-	    $this->Session->write("locale",$location);
-	    $this->redirect($this->referer());
+		$this->Session->write("locale",$location);
+		$this->redirect($this->referer());
   	}
-	function view($s = null) {		
+  	
+	function view($s = null) {
+		$this->layout="home";
 		if (!$s) {
 			$this->Session->setFlash(__('Página inválida', true));
 			$this->redirect(array('action' => 'index'));
+		} else {
+			$this->set('page', $this->Page->findBySlug($s));
+			//$this->set('page', $this->Page->find('first', array('conditions' => array('Page.slug' => $s))));
+			$this->set("homeID", $s);
 		}
-		debug($s);
-		$this->set('page', $this->Page->findBySlug($s));
-		$this->set("homeID",$s);
-		$this->layout="home";
-
 	}
+	
 	function bannerPromocional(){
 		$banner=$this->Page->findByTitle("banner");
 		return $banner["Page"]["content"];
@@ -82,6 +84,7 @@ class PagesController extends AppController {
 			$this->data = $this->Page->read(null, $id);
 		}
 	}
+	
 	function contacto(){
 		if(!empty($this->data)){
 				$asunto    = 'Contacto Página Web';
@@ -101,9 +104,11 @@ class PagesController extends AppController {
 				}
 		}		
 	}
+	
 	function registro(){
 		
 	}
+	
 	function crear_usuario(){
 		
 	}
