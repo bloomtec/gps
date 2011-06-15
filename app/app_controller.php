@@ -1,7 +1,7 @@
 <?php
 
 class AppController extends Controller {
-	var $components=array("Session", "Auth");	
+//	var $components=array("Session", "Auth");	
 	var $uses=array("Page");
 	var $helpers = array("Form","Session","Html");
 	var $persistModel = true;

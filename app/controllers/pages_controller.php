@@ -3,17 +3,20 @@ class PagesController extends AppController {
 
 	var $name = 'Pages';
 	function beforeFilter(){
-			parent::beforeFilter();
+		//	parent::beforeFilter();
 			//$this->Auth->allow('*');
 			//debug($this->Auth); 
 	}
-		
-
+	function location($location){
+	    $this->Session->write("locale",$location);
+	    $this->redirect($this->referer());
+  	}
 	function view($s = null) {		
 		if (!$s) {
 			$this->Session->setFlash(__('Página inválida', true));
 			$this->redirect(array('action' => 'index'));
 		}
+		debug($s);
 		$this->set('page', $this->Page->findBySlug($s));
 		$this->set("homeID",$s);
 		$this->layout="home";

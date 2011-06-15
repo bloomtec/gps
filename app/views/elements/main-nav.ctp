@@ -1,5 +1,8 @@
 <div id="main-navigation">
-
+	<div class="languaje">
+		<?php echo $html->link("Español",array("controller"=>"pages","action"=>"location","es_es"));?>
+		<?php echo $html->link("Ingles",array("controller"=>"pages","action"=>"location","en_us"));?>
+	</div>
           <ul class="main_nav">
             
             <li>
