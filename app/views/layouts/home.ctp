@@ -35,17 +35,18 @@
 		echo $scripts_for_layout;
 	?>
 </head>
-<body id="<?php if(isset($homeID))echo $homeID; else echo "home"; ?>">
+<body id="<?php if(isset($homeID))echo $homeID; else echo "home"; ?>" class="<?php echo $session->read("locale"); ?>">
+	<?php $menu = $this -> requestAction("/pages/menu");?>
 	<div id="container">
 		<div id="header">
-		  <?php echo $this->element("header");?>
+		  <?php echo $this->element("header",array("menu"=>$menu));?>
 		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>			
 		</div>
 		<div id="footer">
-		   <?php echo $this->element("footer");?>
+		   <?php echo $this->element("footer",array("menu"=>$menu));?>
 		</div>
 	</div>
 	

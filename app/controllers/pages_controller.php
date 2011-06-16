@@ -6,8 +6,11 @@ class PagesController extends AppController {
 	function beforeFilter(){
 		parent::beforeFilter();
 	}
-	
+	function menu(){
+		return $this->Page->find("list",array("fields"=>array("slug","title")));
+	}
 	function location($location){
+		$this->Session->write("menu",$menu);
 		$this->Session->write("locale",$location);
 		$this->redirect($this->referer());
   	}
@@ -60,6 +63,7 @@ class PagesController extends AppController {
 		$this->layout="admin";
 		if (!empty($this->data)) {
 			$this->Page->create();
+			//debug($this->data);
 			if ($this->Page->save($this->data)) {
 				$this->Session->setFlash(__('La página ha sido guardada', true));
 				$this->redirect(array('action' => 'index'));

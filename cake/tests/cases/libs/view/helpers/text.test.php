@@ -280,6 +280,16 @@ class TextHelperTest extends CakeTestCase {
 		$expected = 'Text with a url <a href="http://www.cot.ag/cuIb2Q">www.cot.ag/cuIb2Q</a> and more';
 		$result = $this->Text->autoLinkUrls($text);
 		$this->assertEqual($expected, $result);
+		
+		$text = 'Text with a url http://www.does--not--work.com and more';
+		$expected = 'Text with a url <a href="http://www.does--not--work.com">http://www.does--not--work.com</a> and more';
+		$result = $this->Text->autoLinkUrls($text);
+		$this->assertEqual($expected, $result);
+		
+		$text = 'Text with a url http://www.not--work.com and more';
+		$expected = 'Text with a url <a href="http://www.not--work.com">http://www.not--work.com</a> and more';
+		$result = $this->Text->autoLinkUrls($text);
+		$this->assertEqual($expected, $result);
 	}
 
 /**
@@ -298,11 +308,27 @@ class TextHelperTest extends CakeTestCase {
 		$expected = 'Text with <a href="mailto:email@example.com"\s*>email@example.com</a> address';
 		$result = $this->Text->autoLinkEmails($text);
 		$this->assertPattern('#^' . $expected . '$#', $result);
+		
+		$text = "Text with o'hare._-bob@example.com address";
+		$expected = 'Text with <a href="mailto:o&#039;hare._-bob@example.com">o&#039;hare._-bob@example.com</a> address';
+		$result = $this->Text->autoLinkEmails($text);
+		$this->assertEqual($expected, $result);
 
 		$text = 'Text with email@example.com address';
 		$expected = 'Text with <a href="mailto:email@example.com" \s*class="link">email@example.com</a> address';
 		$result = $this->Text->autoLinkEmails($text, array('class' => 'link'));
 		$this->assertPattern('#^' . $expected . '$#', $result);
+	}
+
+/**
+ * test invalid email addresses.
+ *
+ * @return void
+ */
+	function testAutoLinkEmailInvalid() {
+		$result = $this->Text->autoLinkEmails('this is a myaddress@gmx-de test');
+		$expected = 'this is a myaddress@gmx-de test';
+		$this->assertEqual($expected, $result);
 	}
 
 /**

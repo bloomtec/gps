@@ -451,7 +451,21 @@ h2.titulo2{
 /** End Home **/
 
 /** Main Navigation **/
-
+.languaje{
+	position:absolute;
+	right: 15px;
+	top:-50px;
+}
+.languaje a{
+	margin-left: 10px;
+	color:white;
+}
+.en_us .en_us{
+	color:#E1A500;
+}
+.es_es .es_es{
+	color:#E1A500;
+}
 #main-navigation{
     width:650px;
     height:38px;

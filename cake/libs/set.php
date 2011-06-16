@@ -431,6 +431,13 @@ class Set {
 						'key' => $key,
 						'item' => array_keys($context['item']),
 					);
+				} elseif (($key === $token || (ctype_digit($token) && $key == $token) || $token === '.')) {
+					$context['trace'][] = $key;
+					$matches[] = array(
+						'trace' => $context['trace'],
+						'key' => $key,
+						'item' => $context['item'],
+					);
 				} elseif (is_array($context['item']) && array_key_exists($token, $context['item'])) {
 					$items = $context['item'][$token];
 					if (!is_array($items)) {
@@ -470,13 +477,6 @@ class Set {
 							'item' => $item,
 						);
 					}
-				} elseif (($key === $token || (ctype_digit($token) && $key == $token) || $token === '.')) {
-					$context['trace'][] = $key;
-					$matches[] = array(
-						'trace' => $context['trace'],
-						'key' => $key,
-						'item' => $context['item'],
-					);
 				}
 			}
 			if ($conditions) {
@@ -1092,6 +1092,10 @@ class Set {
  * @static
  */
 	function sort($data, $path, $dir) {
+		$originalKeys = array_keys($data);
+		if (is_numeric(implode('', $originalKeys))) {
+			$data = array_values($data);
+		}
 		$result = Set::__flatten(Set::extract($data, $path));
 		list($keys, $values) = array(Set::extract($result, '{n}.id'), Set::extract($result, '{n}.value'));
 
@@ -1103,7 +1107,6 @@ class Set {
 		}
 		array_multisort($values, $dir, $keys, $dir);
 		$sorted = array();
-
 		$keys = array_unique($keys);
 
 		foreach ($keys as $k) {

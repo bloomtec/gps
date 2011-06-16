@@ -430,16 +430,14 @@ class Controller extends Object {
 
 			foreach ($merge as $var) {
 				if (!empty($appVars[$var]) && is_array($this->{$var})) {
-					if ($var === 'components') {
+					if ($var !== 'uses') {
 						$normal = Set::normalize($this->{$var});
 						$app = Set::normalize($appVars[$var]);
 						if ($app !== $normal) {
 							$this->{$var} = Set::merge($app, $normal);
 						}
 					} else {
-						$this->{$var} = Set::merge(
-							$this->{$var}, array_diff($appVars[$var], $this->{$var})
-						);
+						$this->{$var} = array_merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
 					}
 				}
 			}
@@ -456,16 +454,14 @@ class Controller extends Object {
 
 			foreach ($merge as $var) {
 				if (isset($appVars[$var]) && !empty($appVars[$var]) && is_array($this->{$var})) {
-					if ($var === 'components') {
+					if ($var !== 'uses') {
 						$normal = Set::normalize($this->{$var});
 						$app = Set::normalize($appVars[$var]);
 						if ($app !== $normal) {
 							$this->{$var} = Set::merge($app, $normal);
 						}
 					} else {
-						$this->{$var} = Set::merge(
-							$this->{$var}, array_diff($appVars[$var], $this->{$var})
-						);
+						$this->{$var} = array_merge($this->{$var}, array_diff($appVars[$var], $this->{$var}));
 					}
 				}
 			}
@@ -804,7 +800,7 @@ class Controller extends Object {
  */
 	function isAuthorized() {
 		trigger_error(sprintf(
-			__('%s::isAuthorized() is not defined.', true), $this->name
+			__('%sController::isAuthorized() is not defined.', true), $this->name
 		), E_USER_WARNING);
 		return false;
 	}
@@ -847,7 +843,7 @@ class Controller extends Object {
 				$object =& $this->{$object->alias};
 			}
 			$object->set($object->data);
-			$errors = array_merge($errors, $object->invalidFields());
+			$errors = array_merge($errors, (array)$object->invalidFields());
 		}
 
 		return $this->validationErrors = (!empty($errors) ? $errors : false);

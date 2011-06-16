@@ -67,7 +67,8 @@ class MemcacheEngine extends CacheEngine {
 			'engine'=> 'Memcache', 
 			'prefix' => Inflector::slug(APP_DIR) . '_', 
 			'servers' => array('127.0.0.1'),
-			'compress'=> false
+			'compress'=> false,
+			'persistent' => true
 			), $settings)
 		);
 
@@ -82,7 +83,7 @@ class MemcacheEngine extends CacheEngine {
 			$this->__Memcache =& new Memcache();
 			foreach ($this->settings['servers'] as $server) {
 				list($host, $port) = $this->_parseServerString($server);
-				if ($this->__Memcache->addServer($host, $port)) {
+				if ($this->__Memcache->addServer($host, $port, $this->settings['persistent'])) {
 					$return = true;
 				}
 			}
@@ -119,8 +120,7 @@ class MemcacheEngine extends CacheEngine {
 /**
  * Write data for key into cache.  When using memcache as your cache engine
  * remember that the Memcache pecl extension does not support cache expiry times greater 
- * than 30 days in the future. If you wish to create cache entries that do not expire, set the duration
- * to `0` in your cache configuration.
+ * than 30 days in the future. Any duration greater than 30 days will be treated as never expiring.
  *
  * @param string $key Identifier for the data
  * @param mixed $value Data to be cached
@@ -130,6 +130,9 @@ class MemcacheEngine extends CacheEngine {
  * @access public
  */
 	function write($key, &$value, $duration) {
+		if ($duration > 30 * DAY) {
+			$duration = 0;
+		}
 		return $this->__Memcache->set($key, $value, $this->settings['compress'], $duration);
 	}
 

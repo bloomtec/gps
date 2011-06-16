@@ -22,7 +22,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __('GPS:'); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -36,16 +36,18 @@
 	?>
 </head>
 <body id="<?php if(isset($homeID))echo $homeID; else echo "home"; ?>">
+	<?php $menu = $this -> requestAction("/pages/menu");?>
 	<div id="container">
 		<div id="header">
-		  <?php echo $this->element("header");?>
+			
+		  <?php echo $this->element("header",array("menu"=>$menu));?>
 		</div>
 		<div id="content">
 			<?php echo $this->Session->flash(); ?>
 			<?php echo $content_for_layout; ?>			
 		</div>
 		<div id="footer">
-		   <?php echo $this->element("footer");?>
+		   <?php echo $this->element("footer",array("menu"=>$menu));?>
 		</div>
 	</div>
 </body>

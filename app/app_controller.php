@@ -22,8 +22,7 @@ class AppController extends Controller {
 			$this->$model->locale = "es_es";
 		} else {
 			$this->$model->locale = "en_us";
-		}
-		
+		}		
 	}
 	
 }

@@ -3171,3 +3171,5 @@
 2011-06-16 01:58:35 Error: Fatal Error (256): Association content is already binded to model Page in [F:\xampp\htdocs\gps\cake\libs\model\behaviors\translate.php, line 457]
 2011-06-16 01:58:35 Error: Fatal Error (256): Association content is already binded to model Page in [F:\xampp\htdocs\gps\cake\libs\model\behaviors\translate.php, line 457]
 2011-06-16 01:58:36 Error: Fatal Error (256): Association content is already binded to model Page in [F:\xampp\htdocs\gps\cake\libs\model\behaviors\translate.php, line 457]
+2011-06-16 17:39:51 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Page.' in 'field list'</span> in [F:\xampp\htdocs\gps\cake\libs\model\datasources\dbo_source.php, line 684]
+2011-06-16 17:39:53 Warning: Warning (512): <span style="color:Red;text-align:left"><b>SQL Error:</b> 1054: Unknown column 'Page.' in 'field list'</span> in [F:\xampp\htdocs\gps\cake\libs\model\datasources\dbo_source.php, line 684]
