@@ -13,5 +13,13 @@ $(function(){
 		window.opener.CKEDITOR.tools.callFunction(funcNum, fileUrl);
 		window.close();
 		});
+		$(".delete").click(function(){
+			var source=this;
+			$.post("/gps/admin/images/eliminarImagen",{path:$(this).attr("rel")},function(borrada){
+				if(borrada){
+				//	$(source).parent().parent().parent().remove();
+				}
+			})
+		});
 	}();
 });

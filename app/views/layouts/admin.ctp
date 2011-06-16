@@ -29,7 +29,7 @@
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
-		
+		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
 		echo $this->Html->script('ckeditor/ckeditor.js');
 
 		echo $scripts_for_layout;
