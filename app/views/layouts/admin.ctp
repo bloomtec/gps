@@ -30,8 +30,9 @@
 
 		echo $this->Html->css('cake.generic');
 		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
+		echo $this->Html->script("jquery-ui.js");
 		echo $this->Html->script('ckeditor/ckeditor.js');
-
+		echo $this->Html->script('admin.js');
 		echo $scripts_for_layout;
 	?>
 </head>

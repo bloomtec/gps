@@ -33,4 +33,6 @@
  */
 	/**Router::connect('/pages/*', array('controller' => 'pages', 'action' => 'display'));**/
 Router::connect('/', array('controller' => 'pages', 'action' => 'home'));
+//view/contacto
+Router::connect('/pages/view/contacto', array('controller' => 'pages', 'action' => 'contacto'));
 Router::connect('/admin', array('controller' => 'pages', 'action' => 'index',"admin"=>true));

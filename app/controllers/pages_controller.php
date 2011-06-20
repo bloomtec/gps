@@ -95,18 +95,19 @@ class PagesController extends AppController {
 	
 	function contacto(){
 		if(!empty($this->data)){
-				$asunto    = 'Contacto Página Web';
+				$asunto    = $this->data["Page"]["asunto"];
 				$mensaje= "nombre: ".$this->data["Page"]["nombre_contacto"]. "<br />";
 				$mensaje.= "email: ".$this->data["Page"]["email"]. "<br />";
-				$mensaje.= "telefono: ".$this->data["Page"]["telefono"]. "<br />";
-				$mensaje.= "comentarios: ".$this->data["Page"]["comentario"]."<br />";
+
+				$mensaje.= "mensaje: ".$this->data["Page"]["comentario"]."<br />";
 				
 				$cabeceras  = 'MIME-Version: 1.0' . "\r\n";
 				$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-				$para="ricardopandales@gmail.com";
+				$para="ricardopandales@gmail.com,pabloandres623@hotmail.com";
 				$cabeceras .= 'From: Priceshoes <info@priceshoes.com.co>' . "\r\n";
 				if(mail($para, $asunto, $mensaje, $cabeceras)){
 					$this->Session->setFlash(__('Su solicitud fue enviada, muchas gracias por contactarnos.', true));
+					$this->set("enviada",true);
 				}else {
 					$this->Session->setFlash(__('No se pudo enviar su mensaje. Por favor, inténtelo de nuevo.', true));
 				}
@@ -121,17 +122,20 @@ class PagesController extends AppController {
 		
 	}
 	
-	/*function admin_delete($id = null) {
-		if (!$id) {
-			$this->Session->setFlash(__('Invalid id for page', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		if ($this->Page->delete($id)) {
-			$this->Session->setFlash(__('Page deleted', true));
-			$this->redirect(array('action'=>'index'));
-		}
-		$this->Session->setFlash(__('Page was not deleted', true));
-		$this->redirect(array('action' => 'index'));
-	}*/
+  function reOrder(){
+   /* 
+      * Ordena las categorias se une con el widget de sortable
+    * */
+    foreach($this->data["Item"] as $id=>$posicion){
+    $this->Page->id=$id;
+     $this->Page->saveField("order",$posicion);
+    
+    }
+    
+    echo "yes";
+    Configure::write('debug', 0);   
+    $this->autoRender = false;   
+    exit(); 
+  }
 }
 ?>

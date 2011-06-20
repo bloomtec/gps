@@ -1,10 +1,4 @@
-$(function() {
-	/**
-	 * menu
-	 */
-	$('ul.nav').superfish();
-	
-});
+var server="/gps/";
 $(function(){ // Order and reorder
   var sendData=function(order,controller){
     var data={};

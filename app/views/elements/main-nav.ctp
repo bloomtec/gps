@@ -31,7 +31,7 @@
 		</li>
 		<li>
 			<?php
-			echo $html -> link($menu["conozcanos"], '/pages/view/contacto', array("class" => "other color contacto", ));
+			echo $html -> link($menu["contacto"], '/pages/view/contacto', array("class" => "other color contacto", ));
 			?>
 		</li>
 	</ul>
