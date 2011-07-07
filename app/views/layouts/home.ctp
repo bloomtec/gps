@@ -22,7 +22,7 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('GPS'); ?>
+		<?php __($PAGE_TITLE . " ::"); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
@@ -30,25 +30,23 @@
 
 		echo $this->Html->css('front');
 		echo $this->Html->script("https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js");
-		//echo $this->Html->script("front.js");
 
 		echo $scripts_for_layout;
 	?>
 </head>
-<body id="<?php if(isset($homeID))echo $homeID; else echo "home"; ?>" class="<?php echo $session->read("locale"); ?>">
-	<?php $menu = $this -> requestAction("/pages/menu");?>
-	<div id="container">
-		<div id="header">
-		  <?php echo $this->element("header",array("menu"=>$menu));?>
+	<body id="<?php if(isset($homeID))echo $homeID; else echo "home"; ?>" class="<?php echo $session->read("locale"); ?>">
+		<?php $menu = $this -> requestAction("/pages/menu");?>
+		<div id="container">
+			<div id="header">
+			  <?php echo $this->element("header", array("menu"=>$menu));?>
+			</div>
+			<div id="content">
+				<?php echo $this->Session->flash(); ?>
+				<?php echo $content_for_layout; ?>			
+			</div>
+			<div id="footer">
+			   <?php echo $this->element("footer", array("menu" => $menu));?>
+			</div>
 		</div>
-		<div id="content">
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $content_for_layout; ?>			
-		</div>
-		<div id="footer">
-		   <?php echo $this->element("footer",array("menu"=>$menu));?>
-		</div>
-	</div>
-	
-</body>
+	</body>
 </html>

@@ -2,8 +2,8 @@
 class ImagesController extends AppController {
 
 	var $name = 'Images';
-  var $uses=array();
-  var $wysiwygPath="wysiwyg";
+	var $uses = array();
+	var $wysiwygPath = "wysiwyg";
 
 	function index() {
 		$this->Image->recursive = 0;
@@ -115,13 +115,15 @@ class ImagesController extends AppController {
 		$this->Session->setFlash(__('Image was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
-  function admin_wysiwyg(){//ESTA FUNCION MUESTRA EL LISTADO DE LAS IMAGENES SUBIDAS POR EL WYSIWYG
-    $this->layout="file_browser";
-    App::import("Folder");
-    $folder= new Folder(WWW_ROOT.$this->wysiwygPath);
-    $this->set("folder",$folder->read());
-    $this->set("folderPath","/".$this->wysiwygPath);
-  }
+	
+	function admin_wysiwyg(){//ESTA FUNCION MUESTRA EL LISTADO DE LAS IMAGENES SUBIDAS POR EL WYSIWYG
+	    $this->layout="file_browser";
+	    App::import("Folder");
+	    $folder= new Folder(WWW_ROOT.$this->wysiwygPath);
+	    $this->set("folder",$folder->read());
+	    $this->set("folderPath","/".$this->wysiwygPath);
+	}
+	
 	function admin_eliminarImagen(){
 		$path=$_POST["path"];
 		App::import("File");		
@@ -131,29 +133,27 @@ class ImagesController extends AppController {
 		$this->autorender=false;
 		exit(0);
 	}
-    function uploadfy_add(){
-    if($_POST["name"]&&$_POST["folder"]){
-      $devolver=true;
-      $this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/360x360",$_POST["name"],360,360);
-      $this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/200x200",$_POST["name"],200,200);
-      $this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/100x100",$_POST["name"],100,100);
-      if(isset($_POST["galeriaId"])){
-        $imagen["Image"]["gallery_id"]=$_POST["galeriaId"];
-        $imagen["Image"]["path"]=$_POST["name"];
-        $this->Image->create();
-        $this->Image->save($imagen);
-
-        $devolver=$this->Image->id;
-        
-
-      }
-      echo $devolver;
-    }else{
-      echo false;
-    }
-    Configure::write("debug",0);
-    $this->autoRender=false;
-    exit(0);
-  }
+	
+    function uploadfy_add() {
+    	if($_POST["name"]&&$_POST["folder"]) {
+    		$devolver=true;
+    		$this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/360x360",$_POST["name"],360,360);
+    		$this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/200x200",$_POST["name"],200,200);
+    		$this->Attachment->resize_image("resize","img/".$_POST["folder"]."/".$_POST["name"],"img/".$_POST["folder"]."/100x100",$_POST["name"],100,100);
+    		if(isset($_POST["galeriaId"])) {
+    			$imagen["Image"]["gallery_id"]=$_POST["galeriaId"];
+    			$imagen["Image"]["path"]=$_POST["name"];
+    			$this->Image->create();
+    			$this->Image->save($imagen);
+    			$devolver=$this->Image->id;
+			}
+			echo $devolver;
+		} else {
+			echo false;
+		}
+		Configure::write("debug",0);
+		$this->autoRender=false;
+		exit(0);
+	}
 }
 ?>

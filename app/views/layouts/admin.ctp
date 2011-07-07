@@ -22,17 +22,19 @@
 <head>
 	<?php echo $this->Html->charset(); ?>
 	<title>
-		<?php __('CakePHP: the rapid development php framework:'); ?>
+		<?php __($PAGE_TITLE . " ::"); ?>
 		<?php echo $title_for_layout; ?>
 	</title>
 	<?php
 		echo $this->Html->meta('icon');
 
 		echo $this->Html->css('cake.generic');
+		
 		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
 		echo $this->Html->script("jquery-ui.js");
 		echo $this->Html->script('ckeditor/ckeditor.js');
 		echo $this->Html->script('admin.js');
+		
 		echo $scripts_for_layout;
 	?>
 </head>
@@ -43,7 +45,6 @@
 				<?php echo $html->link("Español",array("controller"=>"pages","action"=>"location","es_es"));?>
 				<?php echo $html->link("Ingles",array("controller"=>"pages","action"=>"location","en_us"));?>
 			</div>
-			<h1><?php echo $this->Html->link(__('CakePHP: the rapid development php framework', true), 'http://cakephp.org'); ?></h1>
 		</div>
 		<div id="content">
 
@@ -53,12 +54,7 @@
 
 		</div>
 		<div id="footer">
-			<?php echo $this->Html->link(
-					$this->Html->image('cake.power.gif', array('alt'=> __('CakePHP: the rapid development php framework', true), 'border' => '0')),
-					'http://www.cakephp.org/',
-					array('target' => '_blank', 'escape' => false)
-				);
-			?>
+			<!-- FOOTER CONTENT -->
 		</div>
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
