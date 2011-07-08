@@ -1,14 +1,12 @@
 <div class="login">
-	<h1> <?php __("CMS")?> </h1>
-<?php echo $session->flash('auth');?>
-<?php echo $this->Form->create('User');?>
+	<?php echo $session->flash('auth');?>
+	<?php echo $this->Form->create('User');?>
 	<fieldset>
- 	
-	<?php
-		echo $this->Form->input('username', array('label'=>'Usuario'));
-		echo $this->Form->input('password',array('type'=>'password'));
-		//echo $this->Form->input('rol',array('type'=>'hidden','value'=>'x'));
-	?>
+		<legend><?php __('Acceso al CMS'); ?></legend>
+		<?php
+			echo $this->Form->input('username', array('label'=>'Usuario'));
+			echo $this->Form->input('password', array('label'=>'Contraseña'));
+		?>
 	</fieldset>
-<?php echo $this->Form->end(__('Ingresar', true));?>
+	<?php echo $this->Form->end(__('Ingresar', true));?>
 </div>

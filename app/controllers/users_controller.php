@@ -35,18 +35,8 @@ class UsersController extends AppController {
 		$this -> set(compact('roles'));
 	}
 
-	//LOGIN USER
-	function login() {
-		$this -> set("login", true);
-	}
-
 	function admin_login() {
-		$this -> set("login", true);
-	}
-
-	//LOGOUT USER
-	function logout() {
-		$this -> redirect($this -> Auth -> logout());
+		$this->set("login", true);
 	}
 
 	function admin_logout() {

@@ -28,7 +28,7 @@
 	<?php
 		echo $this->Html->meta('icon');
 
-		echo $this->Html->css('cake.generic');
+		echo $this->Html->css('back');
 		
 		echo $this->Html->script('http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js');
 		echo $this->Html->script("jquery-ui.js");
@@ -40,12 +40,24 @@
 </head>
 <body>
 	<div id="container">
+		
 		<div id="header">
-			<div class="languaje">
-				<?php echo $html->link("Español",array("controller"=>"pages","action"=>"location","es_es"));?>
-				<?php echo $html->link("Ingles",array("controller"=>"pages","action"=>"location","en_us"));?>
-			</div>
+			<ul class="nav">
+				<li>
+					<?php echo $html->link("Páginas", array("controller" => "pages", "action" => "index")); ?>
+				</li>
+				<li>
+					<?php echo $html->link("Noticias", array("controller" => "news", "action" => "index")); ?>
+				</li>
+				<li>
+					<?php echo $html->link("Usuarios", array("controller" => "users", "action" => "index")); ?>
+				</li>
+				<li>
+					<?php echo $html->link(__("logout", true), array("controller" => "users", "action" => "logout"), array("class"=>"logout"))?>
+				<li>
+			</ul>
 		</div>
+		
 		<div id="content">
 
 			<?php echo $this->Session->flash(); ?>
@@ -53,9 +65,11 @@
 			<?php echo $content_for_layout; ?>
 
 		</div>
+		
 		<div id="footer">
 			<!-- FOOTER CONTENT -->
 		</div>
+		
 	</div>
 	<?php echo $this->element('sql_dump'); ?>
 </body>

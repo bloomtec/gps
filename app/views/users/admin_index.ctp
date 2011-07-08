@@ -1,10 +1,11 @@
 <div class="users_index">
-	<h2><?php __('Users');?></h2>
+	<h2><?php __('Usuarios');?></h2>
 	<table cellpadding="0" cellspacing="0">
 		<tr>
-			<th><?php echo $this->Paginator->sort('role_id');?></th>
-			<th><?php echo $this->Paginator->sort('username');?></th>
-			<th class="actions"><?php __('Actions');?></th>
+			<th><?php echo $this->Paginator->sort('Rol', 'role_id');?></th>
+			<th><?php echo $this->Paginator->sort('Usuario', 'username');?></th>
+			<th><?php echo $this->Paginator->sort('Correo Electrónico', 'email');?></th>
+			<th class="actions"><?php __('Acciones');?></th>
 		</tr>
 		<?php
 		$i = 0;
@@ -17,6 +18,7 @@
 		<tr<?php echo $class;?>>
 			<td><?php echo $user['Role']['name']; ?>&nbsp;</td>
 			<td><?php echo $user['User']['username']; ?>&nbsp;</td>
+			<td><?php echo $user['User']['email']; ?>&nbsp;</td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('Modificar', true), array('action' => 'edit', $user['User']['id'])); ?>
 			</td>
