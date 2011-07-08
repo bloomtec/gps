@@ -3,11 +3,13 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 08, 2011 at 12:10 AM
+-- Generation Time: Jul 08, 2011 at 04:25 AM
 -- Server version: 5.5.8
 -- PHP Version: 5.3.5
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT=0;
+START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -28,7 +30,7 @@ USE `gps`;
 --
 -- Table structure for table `i18n`
 --
--- Creation: Jul 07, 2011 at 09:46 PM
+-- Creation: Jul 08, 2011 at 01:31 AM
 --
 
 DROP TABLE IF EXISTS `i18n`;
@@ -87,7 +89,7 @@ INSERT INTO `i18n` (`id`, `locale`, `model`, `foreign_key`, `field`, `content`) 
 --
 -- Table structure for table `news`
 --
--- Creation: Jul 07, 2011 at 10:05 PM
+-- Creation: Jul 08, 2011 at 01:31 AM
 --
 
 DROP TABLE IF EXISTS `news`;
@@ -104,7 +106,7 @@ CREATE TABLE IF NOT EXISTS `news` (
 --
 -- Table structure for table `pages`
 --
--- Creation: Jul 07, 2011 at 09:46 PM
+-- Creation: Jul 08, 2011 at 01:31 AM
 --
 
 DROP TABLE IF EXISTS `pages`;
@@ -136,7 +138,7 @@ INSERT INTO `pages` (`id`, `title`, `description`, `content`, `slug`, `created`,
 --
 -- Table structure for table `roles`
 --
--- Creation: Jul 07, 2011 at 09:46 PM
+-- Creation: Jul 08, 2011 at 01:31 AM
 --
 
 DROP TABLE IF EXISTS `roles`;
@@ -159,7 +161,7 @@ INSERT INTO `roles` (`id`, `name`) VALUES
 --
 -- Table structure for table `users`
 --
--- Creation: Jul 07, 2011 at 09:46 PM
+-- Creation: Jul 08, 2011 at 01:31 AM
 --
 
 DROP TABLE IF EXISTS `users`;
@@ -173,7 +175,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `updated` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `user.role_id` (`role_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role_id`, `username`, `password`, `email`, `created`, `updated`) VALUES
+(1, 1, 'admin', 'c417ba7e897e9970f90942e13bbf365b8f627696', 'admin@globalpharmasolutions.com', '2011-07-08 03:46:10', '2011-07-08 03:46:10');
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
