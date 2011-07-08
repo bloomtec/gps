@@ -1,19 +1,12 @@
-<div class="news form">
+<div class="news_form">
 <?php echo $this->Form->create('News');?>
 	<fieldset>
-		<legend><?php __('Admin Add News'); ?></legend>
+		<legend><?php __('Añadir Noticia'); ?></legend>
 	<?php
-		echo $this->Form->input('title');
-		echo $this->Form->input('description');
-		echo $this->Form->input('content');
+		echo $this->Form->input('title', array('label' => 'Título'));
+		echo $this->Form->input('description', array('label' => 'Descripción'));
+		echo $this->Form->input('content', array('label' => 'Contenido'));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
-</div>
-<div class="actions">
-	<h3><?php __('Actions'); ?></h3>
-	<ul>
-
-		<li><?php echo $this->Html->link(__('List News', true), array('action' => 'index'));?></li>
-	</ul>
+<?php echo $this->Form->end(__('Añadir Noticia', true));?>
 </div>

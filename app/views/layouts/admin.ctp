@@ -48,6 +48,11 @@
 				</li>
 				<li>
 					<?php echo $html->link("Noticias", array("controller" => "news", "action" => "index")); ?>
+					<ul>
+						<li>
+							<?php echo $html->link("Añadir Noticia", array("controller" => "news", "action" => "add")); ?>
+						</li>
+					</ul>
 				</li>
 				<li>
 					<?php echo $html->link("Usuarios", array("controller" => "users", "action" => "index")); ?>
