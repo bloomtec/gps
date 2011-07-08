@@ -1,13 +1,13 @@
-<div class="users ">
+<div class="users_form">
 <?php echo $this->Form->create('User');?>
 	<fieldset>
- 		<legend><?php __('Admin Edit User'); ?></legend>
+ 		<legend><?php __('Modificar Usuario'); ?></legend>
 	<?php
 		echo $this->Form->input('id');
-		//echo $this->Form->input('role_id');
-		echo $this->Form->input('username');
-		echo $this->Form->input('password2',array("label"=>"password","type"=>"password"));
+		echo $this->Form->input('username', array("label" => "Usuario"));
+		echo $this->Form->input('password', array("label" => "Contraseña"));
+		echo $this->Form->input('email', array("label" => "Correo Electrónico"));
 	?>
 	</fieldset>
-<?php echo $this->Form->end(__('Submit', true));?>
+<?php echo $this->Form->end(__('Modificar', true));?>
 </div>

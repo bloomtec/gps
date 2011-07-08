@@ -290,3 +290,7 @@
 2011-07-07 23:50:55 Debug: Notice (8): Undefined index: ventajas in [F:\jucedogi\xampp\htdocs\gps\app\views\elements\footer.ctp, line 17]
 2011-07-07 23:50:55 Debug: Notice (8): Undefined index: portafolio in [F:\jucedogi\xampp\htdocs\gps\app\views\elements\footer.ctp, line 22]
 2011-07-07 23:50:55 Debug: Notice (8): Undefined index: conozcanos in [F:\jucedogi\xampp\htdocs\gps\app\views\elements\footer.ctp, line 27]
+2011-07-08 03:39:20 Debug: Notice (8): Undefined variable: menu in [C:\Documents and Settings\theadmin\Mis documentos\apps\xampp\htdocs\gps\app\controllers\pages_controller.php, line 19]
+2011-07-08 03:39:25 Debug: Notice (8): Undefined variable: menu in [C:\Documents and Settings\theadmin\Mis documentos\apps\xampp\htdocs\gps\app\controllers\pages_controller.php, line 19]
+2011-07-08 03:39:32 Debug: Notice (8): Undefined variable: menu in [C:\Documents and Settings\theadmin\Mis documentos\apps\xampp\htdocs\gps\app\controllers\pages_controller.php, line 19]
+2011-07-08 03:39:36 Debug: Notice (8): Undefined variable: menu in [C:\Documents and Settings\theadmin\Mis documentos\apps\xampp\htdocs\gps\app\controllers\pages_controller.php, line 19]

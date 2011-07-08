@@ -58,6 +58,7 @@ class NewsController extends AppController {
 		$this->Session->setFlash(__('News was not deleted', true));
 		$this->redirect(array('action' => 'index'));
 	}
+	
 	function admin_index() {
 		$this->News->recursive = 0;
 		$this->set('news', $this->paginate());
