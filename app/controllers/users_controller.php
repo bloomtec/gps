@@ -36,7 +36,7 @@ class UsersController extends AppController {
 	}
 
 	function admin_login() {
-		$this->set("login", true);
+		$this -> set("login", true);
 	}
 
 	function admin_logout() {
