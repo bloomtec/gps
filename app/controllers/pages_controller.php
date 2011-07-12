@@ -2,7 +2,7 @@
 class PagesController extends AppController {
 
 	var $name = 'Pages';
-
+	var $uses=array("Page","User");
 	function beforeFilter() {
 		parent::beforeFilter();
 		$this -> Auth -> allow(
@@ -106,6 +106,7 @@ class PagesController extends AppController {
 
 	function contacto() {
 		if(!empty($this -> data)) {
+			$user=$this->User->read(null,1);
 			$asunto = $this -> data["Page"]["asunto"];
 			$mensaje = "nombre: " . $this -> data["Page"]["nombre_contacto"] . "<br />";
 			$mensaje .= "email: " . $this -> data["Page"]["email"] . "<br />";
@@ -114,7 +115,7 @@ class PagesController extends AppController {
 
 			$cabeceras = 'MIME-Version: 1.0' . "\r\n";
 			$cabeceras .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-			$para = "ricardopandales@gmail.com,pabloandres623@hotmail.com";
+			$para = $user["User"]["email"];
 			$cabeceras .= 'From: Priceshoes <info@priceshoes.com.co>' . "\r\n";
 			if(mail($para, $asunto, $mensaje, $cabeceras)) {
 				$this -> Session -> setFlash(__('Su solicitud fue enviada, muchas gracias por contactarnos.', true));

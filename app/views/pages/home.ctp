@@ -9,7 +9,14 @@
 			<?php echo $this->Html->link('more', '/pages/view/portafolio', array('class'=>'more')); ?>
 		</div>
 		<div class="informacion">
-			<h1>Noticias</h1>
+			<h1>
+				<?php
+					if($session -> read("locale") == "es_es")
+						echo "Noticias";
+					else
+						echo "News";
+				?>
+			</h1>
 			<!-- <p>
 				Global Pharma Solutions cuenta con un Staff que garantiza la estructura de Gestión  de Calidad  (Quality Management System) acorde a Buenas Prácticas de Manufactura (GMP´s) según  Informe 37 y a las últimas tendencias de la Organización Mundial de la Salud  (OMS) y FDA – ICH Q10. 
 				Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -29,7 +36,14 @@
 				?>
 			</p>
 			<?php echo $this->Html->link('more', '/pages/view/noticias', array('class'=>'more')); ?>
-			<h1>Ventajas</h1>
+			<h1>
+				<?php
+					if($session -> read("locale") == "es_es")
+						echo "Ventajas";
+					else
+						echo "Advantages";
+				?>
+			</h1>
 			<!-- <p>
 				Global Pharma Solutions integra un Capital humano directivo  y operativo con alto nivel de Know How farmacéutico trasnacional, innovación tecnológica y técnica y experiencia  en proyectos farmacéuticos de gran impacto en Latinoamérica.
 			</p> -->
@@ -43,7 +57,14 @@
 	</div>
 	<div class="content-right">
 		<div class="informacion">
-			<h1>Conózcanos</h1>
+			<h1>
+				<?php
+					if($session -> read("locale") == "es_es")
+						echo "Conózcanos";
+					else
+						echo "About us";
+				?>
+			</h1>
 			<div class="conozcanos">
 				<!-- <p>
 					Global Pharma Solutions es un Proyecto de compañía maquiladora de medicamentos  especiales para uso humano,  con Supply Chain Integral  y  estructura de Gestión de Calidad (Quality Management System), y de diseño y construcción de Plantas Farmacéuticas acorde a GMP’s según Informe 37 de la
