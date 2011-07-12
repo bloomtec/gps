@@ -29,7 +29,7 @@ class AppController extends Controller {
 	}
 	
 	function beforeRender(){
-		$PAGE_TITLE = "www.globalpharmasolutions.com";
+		$PAGE_TITLE = "Global Pharma Solutions";
 		$this->set(compact("PAGE_TITLE"));
 		$this->set('base_url', 'http://'.$_SERVER['SERVER_NAME'].Router::url('/'));
 	}

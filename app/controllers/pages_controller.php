@@ -23,7 +23,7 @@ class PagesController extends AppController {
 		$this -> redirect($this -> referer());
 	}
 
-	function view($s =null) {
+	function view($s = null) {
 		if(!$s) {
 			$this -> Session -> setFlash(__('Página inválida', true));
 			$this -> redirect( array('action' => 'index'));
@@ -44,7 +44,13 @@ class PagesController extends AppController {
 	}
 
 	function conozcanos() {
-
+		$tmp = $this -> Page -> find('first', array('conditions' => array('slug' => 'conozcanos')));
+		return $tmp['Page']['description'];
+	}
+	
+	function ventajas() {
+		$tmp = $this -> Page -> find('first', array('conditions' => array('slug' => 'ventajas')));
+		return $tmp['Page']['description'];
 	}
 
 	function admin_index() {
