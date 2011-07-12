@@ -5,7 +5,12 @@ class PagesController extends AppController {
 
 	function beforeFilter() {
 		parent::beforeFilter();
-		$this -> Auth -> allow('menu', 'location', 'view', 'bannerPromocional', 'home', 'conozcanos', 'contacto', 'reOrder');
+		$this -> Auth -> allow(
+			'menu', 'location', 'view',
+			'bannerPromocional', 'home', 'conozcanos',
+			'contacto', 'reOrder', 'conozcanos',
+			'ventajas'
+		);
 	}
 
 	function menu() {
