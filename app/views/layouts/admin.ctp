@@ -42,6 +42,10 @@
 	<div id="container">
 		
 		<div id="header">
+			<div class="languaje">
+				<?php echo $html -> link("Español", array("controller" => "pages", "action" => "location", "es_es"),array("class"=>"es_es"));?>
+				<?php echo $html -> link("English", array("controller" => "pages", "action" => "location", "en_us"),array("class"=>"en_us"));?>
+			</div>
 			<ul class="nav">
 				<li>
 					<?php echo $html->link("Páginas", array("controller" => "pages", "action" => "index")); ?>
